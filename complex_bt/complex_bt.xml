@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root BTCPP_format="3"
+      main_tree_to_execute="MainTree">
+  <BehaviorTree ID="MainTree">
+    <Fallback name="root_fallback">
+      <Sequence name="robot_function">
+        <Fallback name="find_ball_fallback">
+          <BallFound name="ball_found"/>
+          <FindBall name="find_ball"
+                    ball_location="{location}"/>
+        </Fallback>
+        <Fallback name="approach_ball_fallback">
+          <BallClose name="ball_close"
+                     ball_location="{location}"/>
+          <ApproachBall name="approach_ball"
+                        ball_location="{location}"/>
+        </Fallback>
+        <Fallback name="grasp_ball_fallback">
+          <BallGrasped name="ball_grasped"/>
+          <GraspBall name="grasp_ball"/>
+        </Fallback>
+        <Fallback name="approach_bin_fallback">
+          <BinClose name="bin_close"/>
+          <ApproachBin name="approach_bin"/>
+        </Fallback>
+        <Fallback name="place_ball_fallback">
+          <BallPlaced name="ball_placed"/>
+          <PlaceBall name="place_ball"/>
+        </Fallback>
+      </Sequence>
+      <AskForHelp name="ask_for_help"/>
+    </Fallback>
+  </BehaviorTree>
+
+  <!-- Description of Node Models (used by Groot) -->
+  <TreeNodesModel>
+    <Action ID="ApproachBall"
+            editable="true">
+      <input_port name="ball_location"
+                  default="1"
+                  type="int"/>
+    </Action>
+    <Action ID="ApproachBin"
+            editable="true"/>
+    <Action ID="AskForHelp"
+            editable="true"/>
+    <Condition ID="BallClose"
+               editable="true">
+      <input_port name="ball_location"
+                  default="1"
+                  type="int"/>
+    </Condition>
+    <Condition ID="BallFound"
+               editable="true"/>
+    <Condition ID="BallGrasped"
+               editable="true"/>
+    <Condition ID="BallPlaced"
+               editable="true"/>
+    <Condition ID="BinClose"
+               editable="true"/>
+    <Action ID="FindBall"
+            editable="true">
+      <output_port name="ball_location"
+                   default="1"
+                   type="int"/>
+    </Action>
+    <Action ID="GraspBall"
+            editable="true"/>
+    <Action ID="PlaceBall"
+            editable="true"/>
+  </TreeNodesModel>
+
+</root>
