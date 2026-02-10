@@ -2,7 +2,7 @@
 
 This package implements a simple obstacle avoidance and navigation behavior for TurtleBot4 using BehaviorTree.CPP and ROS2. The robot uses its LIDAR to detect obstacles and either moves forward or rotates to find a clear path.
 
-![Behavior Tree implementation in ROS2](../videos/behaviortreesROS.gif)
+![Behavior Tree implementation in ROS2](videos/behaviortreesROS.gif)
 ## Overview
 
 - **BehaviorTree.CPP v3** integration with ROS2
