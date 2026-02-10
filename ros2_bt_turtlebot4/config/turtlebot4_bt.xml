@@ -1,0 +1,19 @@
+<root main_tree_to_execute="MainTree">    
+    <BehaviorTree ID="MainTree">
+        <ReactiveFallback name="main_selector">
+            <!-- Try to move if path is clear -->
+            <Sequence name="move_if_clear">
+                <ReadingLaserScanner min_distance="{min_distance}" name="laser_scan"/>
+                <IsObstacleFar min_distance="{min_distance}" name="obstacle_far_check"/>
+                <MoveRobot speed="0.2" name="move_robot"/>
+            </Sequence>
+            <!-- If not clear, rotate and check again -->
+            <Sequence name="rotate_and_check">
+                <Rotating input="90" name="rotating_action"/>
+                <ReadingLaserScanner min_distance="{min_distance}" name="laser_scan_after_rotate"/>
+                <IsObstacleFar min_distance="{min_distance}" name="obstacle_far_check_after_rotate"/>
+            </Sequence>
+        </ReactiveFallback>
+    </BehaviorTree>
+    
+</root>
