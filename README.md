@@ -13,6 +13,8 @@ This package implements a simple obstacle avoidance and navigation behavior for 
 ## Behavior Tree Structure
 
 The main behavior tree is defined in `config/turtlebot4_bt.xml`:
+![Behavior Tree Visualization](images/ros2_bt.png)
+*Behavior Tree implementation visualized in Groot2*
 
 ```
 MainTree (ReactiveFallback)
